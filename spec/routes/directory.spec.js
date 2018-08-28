@@ -1,24 +1,24 @@
-'use strict';
+'use strict'
 
-require('../spec-helper');
+require('../spec-helper')
 
 var expect = require('chai').expect
   , supertest = require('supertest')
   , cheerio = require('cheerio')
   , app = require('../../app')
-  , Employee = require('../../models/employee')
-  , employees = require('../../employees');
+  , Restaurant = require('../../models/restaurant')
+  , restaurants = require('../../restaurants')
 
 describe('directory route', function () {
 
   describe('POST /directory/search/', function () {
     beforeEach(function (done) {
-      Employee.remove({}, function() {
-        Employee.create(employees, function(err, result) {
-          done();
-        });
-      });
-    });
+      Restaurant.remove({}, function() {
+        Restaurant.create(restaurants, function(err, result) {
+          done()
+        })
+      })
+    })
 
     it('returns not found', function (done) {
       var testApp = supertest(app);
@@ -34,7 +34,7 @@ describe('directory route', function () {
       });
     });
 
-    it('returns a single employee', function (done) {
+    it('returns a single restaurant', function (done) {
       var testApp = supertest(app);
       testApp.post('/directory/search/')
         .send({
@@ -49,7 +49,7 @@ describe('directory route', function () {
         });
     });
 
-    it('returns multiple employees', function (done) {
+    it('returns multiple restaurants', function (done) {
       var testApp = supertest(app);
       testApp.post('/directory/search/')
         .send({
@@ -69,7 +69,7 @@ Or start over`
         });
     });
 
-    it('chooses Thor from multiples employees', function (done) {
+    it('chooses Thor from multiples restaurants', function (done) {
       var testApp = supertest(app);
       Employee.findOne({'fullName': 'Thor'}, function(err, result) {
         var thorId = result.id.toString();
