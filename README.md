@@ -1,3 +1,10 @@
+## Contributors
+
+| <a href="http://github.com/mercerbe" target="_blank">**Ben Mercer**</a> |
+| :---: |
+| [![Ben Mercer](https://avatars3.githubusercontent.com/u/35779366?s=150&v=3)](http://github.com/mercerbe) |
+| <a href="http://github.com/mercerbe" target="_blank">`github.com/mercerbe`</a> |
+
 ## Local Development
 
 This project is build using [Express](http://expressjs.com/) web framework and depends on [MongoDB](https://www.mongodb.com).
@@ -87,9 +94,3 @@ This project is build using [Express](http://expressjs.com/) web framework and d
 * No warranty expressed or implied. Software is as is. Diggity.
 * [MIT License](http://www.opensource.org/licenses/mit-license.html)
 
-## Contributors
-
-| <a href="http://github.com/mercerbe" target="_blank">**Ben Mercer**</a> |
-| :---: |
-| [![Ben Mercer](https://avatars3.githubusercontent.com/u/35779366?s=150&v=3)](http://github.com/mercerbe) |
-| <a href="http://github.com/mercerbe" target="_blank">`github.com/mercerbe`</a> |
