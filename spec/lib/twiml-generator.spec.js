@@ -7,49 +7,48 @@ var expect = require('chai').expect
 describe('twiml-generator', function () {
 
   describe('#notFound', function () {
-    it('generates TwiML response when employee query gets nothing', function () {
+    it('generates TwiML response when restaurant query gets nothing', function () {
       var twimlResponse = twimlGenerator.notFound();
       var $ = cheerio.load(twimlResponse.toString());
-      expect($('Message').text()).to.equal('We did not find the employee you\'re looking for');
+      expect($('Message').text()).to.equal('We did not find the restaurant you\'re looking for');
     });
   });
 
   describe('#singleEmployee', function () {
-    it('generates TwiML response with employee content', function () {
-      var employee = {
-        'fullName' : 'Thor',
-        'imageUrl' : 'http://i.imgur.com/kXi5u8w.jpg',
-        'email' : 'thor@asgard.example.com',
+    it('generates TwiML response with restaurant content', function () {
+      var restaurant = {
+        'restaurantName' : 'Thor',
+        'restaurantUrl' : 'http://i.imgur.com/kXi5u8w.jpg',
         'phoneNumber' : '+14155559999'
       };
 
-      var twimlResponse = twimlGenerator.singleEmployee(employee);
+      var twimlResponse = twimlGenerator.singleEmployee(restaurant);
       var $ = cheerio.load(twimlResponse.toString());
       expect($('Message Body').text()).to.equal('Thor\n+14155559999\nthor@asgard.example.com');
     });
   });
 
   describe('#multipleEmployees', function () {
-    it('generates TwiML response for multiple employees', function () {
-      var employees = [
+    it('generates TwiML response for multiple restaurants', function () {
+      var restaurants = [
         {
           'option': 1,
-          'fullName' : 'Thor'
+          'restaurantName' : 'Thor'
         },
         {
           'option': 2,
-          'fullName' : 'Spider-man'
+          'restaurantName' : 'Spider-man'
         },
         {
           'option': 3,
-          'fullName' : 'Wolverine'
+          'restaurantName' : 'Wolverine'
         }
       ];
 
-      var twimlResponse = twimlGenerator.multipleEmployees(employees);
+      var twimlResponse = twimlGenerator.multipleRestaurants(restaurants);
       var $ = cheerio.load(twimlResponse.toString());
       expect($('Message').text()).to.equal(
-`We found multiple people, reply with:
+`We found multiple restaurants, reply with:
 1 for Thor
 2 for Spider-man
 3 for Wolverine

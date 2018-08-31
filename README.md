@@ -5,7 +5,7 @@ This project is build using [Express](http://expressjs.com/) web framework and d
 1. First clone this repository and `cd` into it.
 
    ```bash
-   $ git clone git@github.com:TwilioDevEd/employee-directory-node.git
+   $ git clone https://github.com/mercerbe/SMSMenuCheck
    $ cd employee-directory-node
    ```
 
@@ -62,7 +62,7 @@ This project is build using [Express](http://expressjs.com/) web framework and d
 
 ### How To Demo
 
-1. Text your twilio number the name "Thor".
+1. Text the twilio number the name "Thor".
 1. Should get the following response:
 
    ```
@@ -82,12 +82,10 @@ This project is build using [Express](http://expressjs.com/) web framework and d
    [the image goes here]
   ```
 
-
 ## Meta
 
 * No warranty expressed or implied. Software is as is. Diggity.
 * [MIT License](http://www.opensource.org/licenses/mit-license.html)
-* Lovingly crafted by Twilio Developer Education.
 
 ## Contributors
 

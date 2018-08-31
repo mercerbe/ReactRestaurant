@@ -28,10 +28,10 @@ router.post('/search/', function(req, res, next) {
       if (restaurants.length === 0) {
         res.send(twimlGenerator.notFound().toString())
       } else if (restaurants.length === 1) {
-        res.send(twimlGenerator.singleEmployee(restaurants[0]).toString())
+        res.send(twimlGenerator.singleRestaurant(restaurants[0]).toString())
       } else {
         var options = _.map(restaurants, function(it, index) {
-          return { option: index + 1, fullName: it.fullName, id: it.id }
+          return { option: index + 1, fullName: it.restuarantName, id: it.id }
         });
         var cachedRestaurants = _.object(_.map(options, function(it) { return [it.option, it.id]; }))
         res.cookie('cachedRestaurants', cachedRestaurants, { maxAge: 1000 * 60 * 60 })
