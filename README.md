@@ -1,3 +1,6 @@
+## About 
+SMS Menu Check allows users to text the name of a restaurant and retrieve menu data from that restaurant. In addition, the React website allows restaurants to add their information to the database.
+
 ## Contributors
 
 | <a href="http://github.com/mercerbe" target="_blank">**Ben Mercer**</a> |
