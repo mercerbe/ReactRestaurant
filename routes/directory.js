@@ -5,23 +5,26 @@ var express = require('express')
   , twilio = require('twilio')
   , restaurantFinder = require('../lib/restaurant-finder')
   , _ =  require('underscore')
-  , twimlGenerator = require('../lib/twiml-generator');
+  , twimlGenerator = require('../lib/twiml-generator')
+
+  //number
+  //+17049465474
 
 // POST /directory/search/
 router.post('/search/', function(req, res, next) {
-  var body = req.body.Body;
-  res.type('text/xml');
+  var body = req.body.Body
+  res.type('text/xml')
 
   if (req.cookies.cachedRestaurants !== undefined && !isNaN(body)) {
     var cachedRestaurants = req.cookies.cachedRestaurants;
-    var restaurantId = cachedRestaurants[body];
+    var restaurantId = cachedRestaurants[body]
     if (restaurantId === undefined) {
-      res.send(twimlGenerator.notFound().toString());
+      res.send(twimlGenerator.notFound().toString())
     } else {
       restaurantFinder.findById(restaurantId, function(err, restaurant) {
-        res.clearCookie('cachedRestaurants');
-        res.send(twimlGenerator.singleRestaurant(restaurant).toString());
-      });
+        res.clearCookie('cachedRestaurants')
+        res.send(twimlGenerator.singleRestaurant(restaurant).toString())
+      })
     }
   } else {
     restaurantFinder.findByName(body, function(err, restaurants) {
@@ -32,8 +35,8 @@ router.post('/search/', function(req, res, next) {
       } else {
         var options = _.map(restaurants, function(it, index) {
           return { option: index + 1, fullName: it.restuarantName, id: it.id }
-        });
-        var cachedRestaurants = _.object(_.map(options, function(it) { return [it.option, it.id]; }))
+        })
+        var cachedRestaurants = _.object(_.map(options, function(it) { return [it.option, it.id] }))
         res.cookie('cachedRestaurants', cachedRestaurants, { maxAge: 1000 * 60 * 60 })
 
         res.send(twimlGenerator.multipleRestaurants(options).toString())
@@ -42,4 +45,4 @@ router.post('/search/', function(req, res, next) {
   }
 });
 
-module.exports = router;
+module.exports = router

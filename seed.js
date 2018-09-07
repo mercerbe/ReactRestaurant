@@ -2,7 +2,7 @@
 
 var mongoose = require('mongoose')
   , config = require('./config')
-  , Restaurant = require('./models/employee')
+  , Restaurant = require('./models/restaurant')
   , restaurants = require('./restaurants')
   , _ = require('underscore');
 
