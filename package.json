@@ -10,8 +10,7 @@
   },
   "description": "Employee Directory with Node.js/Express and Twilio",
   "author": {
-    "name": "Marcos Sampaio",
-    "email": "mosampaio@gmail.com"
+    "name": "Ben Mercer"
   },
   "repository": {
     "type": "git",

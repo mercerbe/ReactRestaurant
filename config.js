@@ -1,15 +1,14 @@
-'use strict';
+'use strict'
 
-var config = {};
+var config = {}
 
 var dbConnection = function() {
   if (process.env.NODE_ENV === 'test') {
-    return 'mongodb://localhost/test';
+    return 'mongodb://localhost/test'
   }
+  return 'mongodb://localhost/restaurant-directory'
+}
 
-  return 'mongodb://localhost/restaurant-directory';
-};
+config.dbConnection = dbConnection()
 
-config.dbConnection = dbConnection();
-
-module.exports = config;
+module.exports = config
