@@ -79,6 +79,7 @@ export default class Orders extends EventEmitter {
     });
   }
 
+  //convert incoming order data to a new order entry
   convertItemToOrder(item) {
     return {
       number: item.index,

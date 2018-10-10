@@ -2,7 +2,8 @@ import React, { Component } from "react";
 //app css
 import "./App.css";
 //components
-import OrderEntry from "./components/OrderEntry";
+import Header from "./components/Header/Header";
+import OrderEntry from "./components/OrderEntry/OrderEntry";
 //order data
 import Orders from "./data/orders";
 
@@ -40,7 +41,7 @@ class App extends Component {
   render() {
     return (
       <div className="main">
-        <h1>React Restaurant</h1>
+        <Header />
         <div className="order-list">
           {this.state.orders.map(entry => (
             <OrderEntry
