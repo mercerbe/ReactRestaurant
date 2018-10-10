@@ -7,7 +7,9 @@ export default class MyComponent extends React.Component {
     return (
       <div className="header">
         <h1>React Restaurant</h1>
-        <h4>Serving orders through SMS</h4>
+        <h5 style={{ paddingBottom: "0px" }}>
+          View our menu and place and order at 704.946.5474
+        </h5>
       </div>
     );
   }
