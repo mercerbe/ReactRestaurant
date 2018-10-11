@@ -1,7 +1,8 @@
 import SyncClient from "twilio-sync";
 import EventEmitter from "event-emitter-es6";
-
-const tokenUrl = "https://tangelo-magpie-2475.twil.io/restaurant-token";
+const tokenUrl =
+  process.env.REACT_APP_TOKEN_URL ||
+  "https://tangelo-magpie-2475.twil.io/restaurant-token";
 const orderListName = "orders";
 
 let instance;

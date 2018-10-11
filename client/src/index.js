@@ -7,6 +7,7 @@ import "milligram/dist/milligram.css";
 import * as serviceWorker from "./serviceWorker";
 //components
 import Footer from "./components/Footer/Footer";
+require("dotenv").config();
 
 ReactDOM.render(
   <div>

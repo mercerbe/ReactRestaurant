@@ -1,8 +1,8 @@
 //=================dependencies====================//
 const JwtStrategy = require("passport-jwt").Strategy;
 const ExtractJwt = require("passport-jwt").ExtractJwt;
-const mongoose = require("mongoose"); //searching for user with payload
-const User = mongoose.model("users"); //bring in user model
+const mongoose = require("mongoose"); //searching for admin with payload
+const Admin = mongoose.model("admins"); //bring in admin model
 const keys = require("../config/keys"); //secret
 //==================================================//
 
