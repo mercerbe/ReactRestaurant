@@ -54,8 +54,8 @@ class App extends Component {
               <Icon name="ordered list" circular />
               <Header.Content>Current Orders and Wait Time:</Header.Content>
             </Header>
-            <Container>
-              <Segment raised color="violet">
+            <Container style={{ width: "60%" }}>
+              <Segment raised color="yellow">
                 Wait Time: insert time based on current orders
               </Segment>
             </Container>

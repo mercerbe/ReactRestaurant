@@ -11,8 +11,17 @@ const OrderEntry = ({ order, onCancel, onFinished }) => {
         <p>{order.order}</p>
       </div>
       <div className="order-options">
-        <button onClick={() => onFinished(order)}>Finish Order</button>
-        <button className="button-clear" onClick={() => onCancel(order)}>
+        <button
+          style={{ backgroundColor: "#fbbd08", border: "none" }}
+          onClick={() => onFinished(order)}
+        >
+          Finish Order
+        </button>
+        <button
+          style={{ color: "#fbbd08" }}
+          className="button-clear"
+          onClick={() => onCancel(order)}
+        >
           Cancel Order
         </button>
       </div>
