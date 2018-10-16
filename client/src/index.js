@@ -11,7 +11,7 @@ require("dotenv").config();
 
 ReactDOM.render(
   <div>
-    <App />
+    <App style={{ height: "100vh;" }} />
     <Footer />
   </div>,
   document.getElementById("root")
