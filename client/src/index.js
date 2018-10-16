@@ -12,7 +12,7 @@ require("dotenv").config();
 ReactDOM.render(
   <div>
     <App />
-    <Footer className="footer" />
+    <Footer />
   </div>,
   document.getElementById("root")
 );
