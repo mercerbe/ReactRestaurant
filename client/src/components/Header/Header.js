@@ -9,7 +9,7 @@ import { Image } from "semantic-ui-react";
 export default class MyComponent extends React.Component {
   render() {
     return (
-      <div className="header">
+      <div className="landingHeader">
         <Image
           src={Logo}
           textAlign="center"
