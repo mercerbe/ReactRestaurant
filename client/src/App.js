@@ -16,6 +16,9 @@ import LandingHeader from "./components/Header/Header";
 import OrderList from "./components/OrderList/OrderList";
 import Landing from "./components/Landing/Landing";
 import About from "./components/About/About";
+import Dashboard from "./components/Dashboard/Dashboard";
+import NotFound from "./components/not-found/NotFound";
+import Login from "./components/auth/Login";
 //semantic imports
 import { Grid } from "semantic-ui-react";
 
@@ -44,22 +47,14 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="main" style={{}}>
-            {/* add login here with auth */}
-            {/* add dashboard here with auth for admins */}
-            <LandingHeader />
-            <Grid columns={2} divided>
-              <Grid.Column
-                mobile={16}
-                tablet={8}
-                computer={8}
-                style={{ paddingTop: "1em" }}
-              >
-                <About />
-              </Grid.Column>
-              <Grid.Column mobile={16} tablet={8} computer={8}>
-                <OrderList />
-              </Grid.Column>
-            </Grid>
+            <Route exact path="/" component={Landing} />
+            <div className="container">
+              <Route exact path="/login" component={Login} />
+              <Switch>
+                <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              </Switch>
+              <Route exact path="/not-found" component={NotFound} />
+            </div>
           </div>
         </Router>
       </Provider>
