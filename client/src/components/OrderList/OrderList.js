@@ -2,6 +2,8 @@ import React from "react";
 import OrderEntry from "../OrderEntry/OrderEntry";
 //order data
 import Orders from "../../data/orders";
+//semantic
+import { Header, Icon, Segment, Container } from "semantic-ui-react";
 
 export default class MyComponent extends React.Component {
   //contructor
@@ -37,6 +39,19 @@ export default class MyComponent extends React.Component {
   render() {
     return (
       <div className="order-list">
+        <Header as="h2" icon textAlign="center">
+          <Icon name="ordered list" circular />
+          <Header.Content>Current Orders and Wait Time:</Header.Content>
+        </Header>
+        <Container>
+          <Segment raised color="yellow">
+            Wait Time: insert time based on current orders
+            <br />
+            Also show number of orders placed and have overflow option on
+            orderlist css
+          </Segment>
+        </Container>
+        {/* if not authenticated, show orders w/o buttons on orderlist component */}
         {this.state.orders.map(entry => (
           <OrderEntry
             key={entry.number}

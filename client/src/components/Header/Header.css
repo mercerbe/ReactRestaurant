@@ -3,3 +3,9 @@
   color: white !important;
   padding-bottom: 10px;
 }
+
+#logo {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  text-align: center;
+}

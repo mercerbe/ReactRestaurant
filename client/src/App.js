@@ -8,61 +8,61 @@ import PrivateRoute from "./components/Private/PrivateRoute";
 //track token
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
-//import { setCurrentUser, logoutUser } from "./actions/authActions";
+import { setCurrentUser, logoutUser } from "./actions/authActions";
 //app css
 import "./App.css";
 //components
 import LandingHeader from "./components/Header/Header";
 import OrderList from "./components/OrderList/OrderList";
+import Landing from "./components/Landing/Landing";
+import About from "./components/About/About";
 //semantic imports
-import { Grid, Header, Icon, Segment, Container } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
+
+//check for token on every page req
+if (localStorage.jwtToken) {
+  //set auth token header auth
+  setAuthToken(localStorage.jwtToken);
+  //decode token and get user info and exp
+  const decoded = jwt_decode(localStorage.jwtToken);
+  //set user and is authenticated
+  store.dispatch(setCurrentUser(decoded));
+  //check for exp token
+  const currentTime = Date.now() / 1000;
+  if (decoded.exp < currentTime) {
+    //autologout user
+    store.dispatch(logoutUser());
+    //redirect to home
+    window.location.href = "/";
+  }
+}
 
 class App extends Component {
   //render method
   render() {
     return (
-      <div className="main">
-        <LandingHeader />
-        <Grid columns={2} divided>
-          <Grid.Column mobile={16} tablet={8} computer={8}>
-            <Header as="h3" icon textAlign="center">
-              <Icon name="food" circular />
-              <Header.Content>About Our Restaurant:</Header.Content>
-              <Container>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                  Aenean commodo ligula eget dolor. Aenean massa strong. Cum
-                  sociis natoque penatibus et magnis dis parturient montes,
-                  nascetur ridiculus mus. Donec quam felis, ultricies nec,
-                  pellentesque eu, pretium quis, sem. Nulla consequat massa quis
-                  enim. Donec pede justo, fringilla vel, aliquet nec, vulputate
-                  eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis
-                  vitae, justo. Nullam dictum felis eu pede link mollis pretium.
-                  Integer tincidunt. Cras dapibus. Vivamus elementum semper
-                  nisi. Aenean vulputate eleifend tellus. Aenean leo ligula,
-                  porttitor eu, consequat vitae, eleifend ac, enim. Aliquam
-                  lorem ante, dapibus in, viverra quis, feugiat a, tellus.
-                  Phasellus viverra nulla ut metus varius laoreet. Quisque
-                  rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.
-                  Curabitur ullamcorper ultricies nisi.
-                </p>
-              </Container>
-            </Header>
-          </Grid.Column>
-          <Grid.Column mobile={16} tablet={8} computer={8}>
-            <Header as="h3" icon textAlign="center">
-              <Icon name="ordered list" circular />
-              <Header.Content>Current Orders and Wait Time:</Header.Content>
-            </Header>
-            <Container style={{ width: "60%" }}>
-              <Segment raised color="yellow">
-                Wait Time: insert time based on current orders
-              </Segment>
-            </Container>
-            <OrderList />
-          </Grid.Column>
-        </Grid>
-      </div>
+      <Provider store={store}>
+        <Router>
+          <div className="main" style={{}}>
+            {/* add login here with auth */}
+            {/* add dashboard here with auth for admins */}
+            <LandingHeader />
+            <Grid columns={2} divided>
+              <Grid.Column
+                mobile={16}
+                tablet={8}
+                computer={8}
+                style={{ paddingTop: "1em" }}
+              >
+                <About />
+              </Grid.Column>
+              <Grid.Column mobile={16} tablet={8} computer={8}>
+                <OrderList />
+              </Grid.Column>
+            </Grid>
+          </div>
+        </Router>
+      </Provider>
     );
   }
 }

@@ -11,13 +11,11 @@ export default class MyComponent extends React.Component {
     return (
       <div className="landingHeader">
         <Image
+          id="logo"
           src={Logo}
-          textAlign="center"
           style={{ maxHeight: "200px !important", width: "200px" }}
           fluid
           centered
-          paddingTop="0px"
-          paddingBottom="0px"
         />
         <h1 style={{ marginTop: "-50px" }}>React Restaurant</h1>
         <h5 style={{ paddingBottom: "0px" }}>
