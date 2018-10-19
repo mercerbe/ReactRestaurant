@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 //import classnames from 'classnames'
 import { loginUser } from "../../actions/authActions";
 import TextFieldGroup from "../Common/TextFieldGroup";
+//semantic imports
+import { Container } from "semantic-ui-react";
 
 class Login extends React.Component {
   //constructor and component state
@@ -58,36 +60,34 @@ class Login extends React.Component {
     const { errors } = this.state;
 
     return (
-      <div className="login">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Log In</h1>
-              <p className="lead text-center">Sign in to your Bainc account</p>
-              <form onSubmit={this.onSubmit}>
-                <TextFieldGroup
-                  label="Email"
-                  placeholder="address@yours.com"
-                  name="email"
-                  type="email"
-                  value={this.state.email}
-                  onChange={this.onChange}
-                  error={errors.email}
-                />
-                <TextFieldGroup
-                  label="Password"
-                  placeholder="password"
-                  name="password"
-                  type="password"
-                  value={this.state.password}
-                  onChange={this.onChange}
-                  error={errors.password}
-                />
-                <input type="submit" className="btn btn-info btn-block mt-4" />
-              </form>
-            </div>
-          </div>
-        </div>
+      <div className="login" style={{ backgroundColor: "#222222" }}>
+        <Container textAlign="center">
+          <h1 className="display-4 text-center">Log In</h1>
+          <p className="lead text-center">
+            Sign in to your React Restaurant account
+          </p>
+          <form onSubmit={this.onSubmit}>
+            <TextFieldGroup
+              label="Email"
+              placeholder="address@yours.com"
+              name="email"
+              type="email"
+              value={this.state.email}
+              onChange={this.onChange}
+              error={errors.email}
+            />
+            <TextFieldGroup
+              label="Password"
+              placeholder="password"
+              name="password"
+              type="password"
+              value={this.state.password}
+              onChange={this.onChange}
+              error={errors.password}
+            />
+            <input type="submit" className="btn btn-info btn-block mt-4" />
+          </form>
+        </Container>
       </div>
     );
   }
