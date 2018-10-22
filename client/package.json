@@ -19,6 +19,7 @@
     "react-scripts": "2.0.4",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
+    "semantic-ui-react": "^0.82.5",
     "twilio-sync": "^0.8.4"
   },
   "scripts": {
