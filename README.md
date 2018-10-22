@@ -1,6 +1,13 @@
 ## About
 
-ReactRestaurant is a template for a restaurant website built with React and Twilio. Built in Services include the ability to have customers text the twilio number to view menu items or place an order via SMS.
+ReactRestaurant is a template for a restaurant website built with React and Twilio. Built in Services include the ability to have customers text the Twilio number to view menu items or place an order via SMS.
+
+### To Do:
+
+- [ ] Finish Landing Page Layout
+- [ ] Admin Dashboard
+- [ ] Admin Login/Logout
+- [ ] Order Time Calculations
 
 ## Development Demo
 
